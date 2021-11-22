@@ -9,7 +9,6 @@ promise1
     .then(value => console.log(value))
     .catch(err => console.log(err))
 
-
     const books = [
         {name : 'Kitap 1', author: 'Yazar 1'},
         {name : 'Kitap 2', author: 'Yazar 2'},
