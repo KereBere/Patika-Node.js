@@ -33,7 +33,7 @@ const addBook = (newBook, callback)=> {
 addBook({name: 'Kitap 5', author: 'Yazar 5'}, listBooks);
 ```
 ### Async 
-Async functions wait till funcion is executed. Async functions are used on time demanding tasks. So program will stop untill async. We cas use either .catch/.error or async/await to execute async functions. With async/await keywords it is good to use try&catch blocks to catch errors.
+Async functions wait till funcion is executed. Async functions are used on time demanding tasks. So program will stop untill async. We cas use either .then/.error or async/await to execute async functions. With async/await keywords it is good to use try&catch blocks to catch errors.
 
 ``` js
 getData(true)
@@ -61,4 +61,52 @@ async function processData() {
     }
 }
 ```
-Above function does the same job but with better readibility. 
+Above function does the same job but with better readibility than .then/.catch
+
+### Event-loop
+
+![plot](./images/JSarchitecture.png)
+
+
+### Modül
+``` js
+function showPrimeNumbers(lownumber, highNumber) {
+    for (let i =lownumber; i <= highNumber; i++) {
+        let isPrime = true;
+        for (let j = 2; j <= i; j ++) {
+            if( i % j ===0 && j !==i) {
+                isPrime = false
+            }
+        }
+
+        if(isPrime) {
+            console.log(i);
+        }
+    }
+}
+
+module.exports = showPrimeNumbers 
+```
+Burada fonksiyonu diğer dosyaların kullanımına açıyoruz.
+
+``` js
+import {showPrimeNumbers, showFivePrimes } from './primeNumbers.js';
+
+showPrimeNumbers(14, 28);
+showFivePrimes();
+```
+Burada export edilen modül imort ediliyor. 
+
+### FS(file system) Module
+
+```js
+fs.readFile('password.txt', 'utf8', (err, data) =>
+fs.writeFile('example.json', '{"name": "Ali", "age": "13B"}', "utf-8", (err) =>
+fs.appendFile('example.txt', '\nKodluyoruz 2', 'utf8', (err) =>
+fs.unlink('example.json', (err) =>
+fs.mkdir('uploads/img', { recursive: true }, (err) =>
+fs.rmdir('uploads', { recursive: true }, (err) =>
+
+DeprecationWarning: In future versions of Node.js, fs.rmdir(path, { recursive: true }) will be removed. Use fs.rm(path, { recursive: true 
+}) instead
+```
