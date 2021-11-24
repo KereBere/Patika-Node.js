@@ -110,3 +110,16 @@ fs.rmdir('uploads', { recursive: true }, (err) =>
 DeprecationWarning: In future versions of Node.js, fs.rmdir(path, { recursive: true }) will be removed. Use fs.rm(path, { recursive: true 
 }) instead
 ```
+
+### Node Modules
+`npm init` create a new node module
+`npm i packageName`
+`npm i` install dependencies in package.json
+``` js
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+```
+Add your own scripts and use it like 
+`npm start` It triggers "node index.js"
